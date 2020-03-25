@@ -19,6 +19,7 @@ import warning from './warning.js';
 
 const PopStateEvent = 'popstate';
 const HashChangeEvent = 'hashchange';
+const PushStateEvent = 'pushstate';
 
 function getHistoryState() {
   try {
@@ -91,6 +92,10 @@ function createBrowserHistory(props = {}) {
     handlePop(getDOMLocation(event.state));
   }
 
+  function handlePushState(event) {
+    handlePush(getDOMLocation(event.detail.state));
+  }
+
   function handleHashChange() {
     handlePop(getDOMLocation(getHistoryState()));
   }
@@ -117,6 +122,21 @@ function createBrowserHistory(props = {}) {
         }
       );
     }
+  }
+
+  function handlePush(location) {
+    const action = 'PUSH';
+
+    transitionManager.confirmTransitionTo(
+      location,
+      action,
+      getUserConfirmation,
+      ok => {
+        if (!ok) return;
+
+        setState({ action, location });
+      }
+    );
   }
 
   function revertPop(fromLocation) {
@@ -268,11 +288,13 @@ function createBrowserHistory(props = {}) {
 
     if (listenerCount === 1 && delta === 1) {
       window.addEventListener(PopStateEvent, handlePopState);
+      window.addEventListener(PushStateEvent, handlePushState);
 
       if (needsHashChangeListener)
         window.addEventListener(HashChangeEvent, handleHashChange);
     } else if (listenerCount === 0) {
       window.removeEventListener(PopStateEvent, handlePopState);
+      window.removeEventListener(PushStateEvent, handlePushState);
 
       if (needsHashChangeListener)
         window.removeEventListener(HashChangeEvent, handleHashChange);

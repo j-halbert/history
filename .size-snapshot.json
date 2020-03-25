@@ -1,8 +1,8 @@
 {
   "esm/history.js": {
-    "bundled": 28076,
-    "minified": 12353,
-    "gzipped": 3575,
+    "bundled": 29255,
+    "minified": 12967,
+    "gzipped": 3801,
     "treeshaked": {
       "rollup": {
         "code": 208,
@@ -14,13 +14,37 @@
     }
   },
   "umd/history.js": {
-    "bundled": 33021,
-    "minified": 11943,
-    "gzipped": 3917
+    "bundled": 33969,
+    "minified": 12221,
+    "gzipped": 4143
   },
   "umd/history.min.js": {
-    "bundled": 30384,
-    "minified": 9993,
-    "gzipped": 3501
+    "bundled": 31408,
+    "minified": 10271,
+    "gzipped": 3651
+  },
+  "esm/@linksource/history.js": {
+    "bundled": 29255,
+    "minified": 12967,
+    "gzipped": 3801,
+    "treeshaked": {
+      "rollup": {
+        "code": 208,
+        "import_statements": 132
+      },
+      "webpack": {
+        "code": 1324
+      }
+    }
+  },
+  "umd/@linksource/history.js": {
+    "bundled": 33969,
+    "minified": 12221,
+    "gzipped": 4143
+  },
+  "umd/@linksource/history.min.js": {
+    "bundled": 31408,
+    "minified": 10271,
+    "gzipped": 3651
   }
 }

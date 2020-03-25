@@ -1,8 +1,8 @@
 {
-  "name": "history",
-  "version": "4.10.1",
+  "name": "@linksource/history",
+  "version": "4.11.0",
   "description": "Manage session history with JavaScript",
-  "repository": "ReactTraining/history",
+  "repository": "j-halbert/history",
   "license": "MIT",
   "author": "Michael Jackson",
   "main": "index.js",
